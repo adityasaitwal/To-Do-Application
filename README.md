@@ -1,2 +1,2 @@
 # todoapp
-Simple todo list Application using Angular
+Simple To Do list Application using Angular
