@@ -1,0 +1,10 @@
+<form [formGroup]="taskform">
+    <div class="shadow">
+        <h4>Edit Mode</h4>
+        <div class="input-group p-4">
+            <input type="text" class="form-control" placeholder="Update your task"
+                formControlName="taskname">
+            <button class="btn btn-outline-success" type="button" (click)="Updatetask()">Update</button>
+        </div>
+    </div>
+</form>

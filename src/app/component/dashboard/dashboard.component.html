@@ -1,0 +1,67 @@
+<div class="container-fluid bg-light">
+    <div class="container bg-light">
+        <div class="row" style="height: 500px;">
+            <div class="col"></div>
+            <div class="col bg-white shadow">
+
+                <div class="card bg-warning mt-4">
+                    <h4 class="text-white ps-3 pt-2 pb-2">To Do List</h4>
+                </div>
+
+                <form [formGroup]="taskform">
+                    <div class="shadow">
+                        <div class="input-group p-4">
+                            <input type="text" class="form-control" placeholder="Enter your task"
+                                formControlName="taskname">
+                            <button class="btn btn-outline-success" type="button" (click)="posttask()">Add</button>
+                        </div>
+                    </div>
+                </form>
+
+                <h4 class="text-primary mt-4">Tasks:</h4>
+                <div style="overflow-y:auto; height:400px;">
+                    <div class="m-3" *ngFor="let task of item">
+                        <div class="p-2 shadow border">
+                            <div class="input-group row ps-3">
+                                <div class="card col-md-10 border-0">{{task.taskname}}</div>
+                                <button type="button" class="btn btn-primary" routerLink="/edit/{{task.id}}">
+                                    Edit
+                                </button>
+                                <button class="btn btn-outline-danger col" (click)="deleteall(task.id)">Delete</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-success" type="button" (click)="downloadFile()"
+                        style="margin-left: 250px; margin-bottom:15px;">Save +</button>
+                </div>
+
+            </div>
+
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Mode</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="modal-body">
+                                <input type="text" class="form-control" formControlName="taskname"
+                                    placeholder="Update your task" [(ngModel)]="item.taskname">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
