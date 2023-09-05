@@ -1,2 +1,2 @@
 # todoapplication
-To Do Application using Angular
+To-Do list Application made using Angular
